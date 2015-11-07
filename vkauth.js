@@ -8,7 +8,7 @@ function authorize() {
 	params['response_type'] = "token";
 	params['v'] 			= "5.37";
 	var request = new Request("https://oauth.vk.com/authorize", params);
-
+	
 	chrome.storage.local.get({'vktoken':{}}, function(items) {
 		if (items.vktoken.length === undefined) {
 			chrome.tabs.create({url: request.create(), selected: true}, function(tab){
